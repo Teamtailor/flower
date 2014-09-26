@@ -34,6 +34,7 @@ class Spotbot < Flower::Command
           playlist = connection.post('playlist', uri: message.argument).body
           if playlist
             message.say("Playing from playlist #{playlist["playlist"]}")
+            play_next unless current_track
           else
             message.say("Playlist not found – is it maybe private?")
           end
@@ -70,7 +71,10 @@ class Spotbot < Flower::Command
   end
 
   def self.current_track
-    track_title_from_json connection.get('player/track').body
+    track_json = connection.get('player/track').body
+    if track_json["artists"]
+      track_title_from_json(track_json)
+    end
   end
 
   def self.queue
