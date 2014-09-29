@@ -11,6 +11,16 @@ class Fart < SoundCommand
   end
 
   def self.respond(message)
+    fart
+  end
+
+  def self.listen(message)
+    fart
+  end
+
+  private
+
+  def self.fart
     play_file FILES.sample
   end
 end
