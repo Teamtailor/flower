@@ -1,8 +1,8 @@
 # encoding: UTF-8
 require_relative 'sound_command'
 class Fart < SoundCommand
-  respond_to "fart", "prutt"
-  listen_to "fart", "prutt"
+  respond_to "fart", "prutt", "fis"
+  listen_to "fart", "prutt", "fis"
 
   FILES = Dir.glob("extras/farts/*.mp3").map { |f| f.gsub("extras/", "") }
 
