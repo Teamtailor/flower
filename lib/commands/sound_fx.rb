@@ -47,7 +47,7 @@ class SoundFx < SoundCommand
     when "khan?"
       play_file "soundfx/khan.wav"
     when "kötta"
-      play_file "soundfx/kötta.wav"
+      play_file "soundfx/kotta.mp3"
     when "tarelugnt"
       play_file "soundfx/tadetlugnt.wav"
     when "tadetlugnt"
