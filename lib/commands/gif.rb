@@ -9,9 +9,9 @@ class Gif < Flower::Command
 
   def self.respond(message)
     if query = message.argument
-      message.say(Giphy.random(query))
+      message.say(Giphy.random(query).image_url.to_s)
     else
-      message.say(Giphy.random)
+      message.say(Giphy.random.image_url.to_s)
     end
   end
 end
