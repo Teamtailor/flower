@@ -22,11 +22,18 @@ GEM
     em-socksify (0.2.1)
       eventmachine (>= 1.0.0.beta.4)
     eventmachine (1.0.0)
-    faraday (0.8.4)
-      multipart-post (~> 1.1)
+    faraday (0.8.9)
+      multipart-post (~> 1.2.0)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
+    faraday_middleware-parse_oj (0.2.1)
+      faraday_middleware (~> 0.8)
+      oj (~> 2.0)
     ffi (1.9.3)
+    giphy (1.2.0)
+      faraday (~> 0.8.8)
+      faraday_middleware-parse_oj (~> 0.2.1)
+      launchy (~> 2.4.2)
     github_api (0.8.11)
       faraday (~> 0.8.1)
       hashie (~> 1.2.0)
@@ -50,12 +57,14 @@ GEM
     json (1.5.4)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     libxml-ruby (2.7.0)
     method_source (0.8)
     mime-types (1.19)
     multi_json (1.5.1)
     multi_xml (0.5.1)
-    multipart-post (1.1.5)
+    multipart-post (1.2.0)
     nokogiri (1.5.5)
     oauth (0.4.7)
     oauth2 (0.8.1)
@@ -64,6 +73,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    oj (2.11.1)
     pry (0.9.10)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -123,6 +133,7 @@ DEPENDENCIES
   activesupport
   em-eventsource
   faraday_middleware
+  giphy
   github_api
   google-search
   httparty

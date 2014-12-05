@@ -12,6 +12,8 @@ gem 'libxml-ruby'
 
 gem 'google-search'
 
+gem 'giphy'
+
 gem 'redistat'
 
 gem 'scout_api'
