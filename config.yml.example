@@ -5,3 +5,5 @@
   flows:
     - your_company/your_flow
   bot_nick: "Bot"
+  ignore_commands:
+    - strings matching command files
