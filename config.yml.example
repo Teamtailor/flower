@@ -4,21 +4,4 @@
   api_token: 'xxx'
   flows:
     - your_company/your_flow
-  em_port: 6000
   bot_nick: "Bot"
-  live_id: "xxxx"
-  poke_url: ""
-  pivotal_username: "cool@mail.com"
-  pivotal_password: "secret"
-  instagram_id: xxx
-  instagram_secret: xxx
-  spotify_appkey: spotify_appkey.key
-  spotify_username: 'xxx'
-  spotify_password: 'yyy'
-  tumblr_consumer_key: "xxxx"
-  tumblr_consumer_secret: "xxxx"
-  tumblr_oauth_token: 'xxxx'
-  tumblr_oauth_token_secret: 'xxxx'
-  tumblr_url: "tumblr.tumblr.com"
-  github_token: 'xxxx'
-  github_user: 'mynewsdesk'
