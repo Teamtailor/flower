@@ -8,11 +8,18 @@ require 'yajl'
 require 'thin'
 
 class Flower
-  require File.expand_path(File.join(File.dirname(__FILE__), 'message'))
-  require File.expand_path(File.join(File.dirname(__FILE__), 'stream'))
-  require File.expand_path(File.join(File.dirname(__FILE__), 'rest'))
-  require File.expand_path(File.join(File.dirname(__FILE__), 'command'))
   require File.expand_path(File.join(File.dirname(__FILE__), 'config'))
+
+  if Flower::Config.service == 'flowdock'
+    require File.expand_path(File.join(File.dirname(__FILE__), 'flowdock/message'))
+    require File.expand_path(File.join(File.dirname(__FILE__), 'flowdock/stream'))
+    require File.expand_path(File.join(File.dirname(__FILE__), 'flowdock/rest'))
+  elsif Flower::Config.service == 'slack'
+    require File.expand_path(File.join(File.dirname(__FILE__), 'slack/stream'))
+    require File.expand_path(File.join(File.dirname(__FILE__), 'slack/message'))
+  end
+
+  require File.expand_path(File.join(File.dirname(__FILE__), 'command'))
   require File.expand_path(File.join(File.dirname(__FILE__), 'stats'))
   require File.expand_path(File.join(File.dirname(__FILE__), '..', 'web', 'app'))
 
@@ -32,7 +39,7 @@ class Flower
   def initialize
     self.pid      = Process.pid
     self.stream   = Stream.new(self)
-    self.rest     = Rest.new
+    self.rest     = Rest.new if Flower::Config.service == 'flowdock'
     self.users    = {}
   end
 
@@ -42,7 +49,7 @@ class Flower
     end
 
     EM.run do
-      get_users
+      get_users if Flower::Config.service == 'flowdock'
       stream.start
       Thin::Server.start WebApp.new(self), '0.0.0.0', 3000
     end
@@ -50,12 +57,13 @@ class Flower
 
   def respond_to(message)
     Thread.new do
-      # hack to support the web app
-      message.sender = users[message.user_id] || users.detect{|k,v| v[:nick] == message.sender[:nick] }.last
+      if Flower::Config.service == 'flowdock'
+        message.sender = users[message.user_id] || users.detect{|k,v| v[:nick] == message.sender[:nick] }.last
+        message.rest = rest
+        Thread.exit if !message.sender # Don't break when the mnd CLI tool is posting to chat 
+      end
 
       message.flower = self
-      message.rest = rest
-      Thread.exit if !message.sender # Don't break when the mnd CLI tool is posting to chat
       output = nil
       message.messages.each do |sub_message|
         sub_message.argument = output if output.present?
