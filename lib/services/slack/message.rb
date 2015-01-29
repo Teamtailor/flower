@@ -1,4 +1,4 @@
-class Flower::Message
+class Flower::Services::Slack::Message
   attr_reader :data, :output
   attr_accessor :sender, :flower, :internal
 
@@ -80,15 +80,10 @@ class Flower::Message
   end
 
   def say(reply, options = {})
-    flower.stream.send(type: 'message', channel: channel, text: reply)
+    flower.service.send(type: 'message', channel: channel, text: reply)
   end
 
   def paste(reply, options = {})
-    flower.stream.send(type: 'message', channel: channel, text: reply)
-    # reply = reply.join("\n") if reply.respond_to?(:join)
-    # reply = reply.split("\n").map{ |str| (" " * 4) + str }.join("\n")
-    # reply = reply.respond_to?(:join) ? reply.join("\n") : reply
-    # @output = reply
-    # rest.post_message(reply, parse_tags(options), self)
+    flower.service.send(type: 'message', channel: channel, text: reply)
   end
 end
