@@ -1,9 +1,17 @@
 ---
+  # FLOWDOCK
+  service: "flowdock"
   email: "user@domain.com"
   password: "supersecret"
   api_token: 'xxx'
   flows:
     - your_company/your_flow
+
+  # SLACK
+  service: "slack"
+  api_token: 'xxxx'
+
+  # GLOBAL
   bot_nick: "Bot"
   ignore_commands:
     - strings matching command files
