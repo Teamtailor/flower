@@ -4,6 +4,7 @@ module Flower::Services
     require_relative 'flowdock/stream'
     require_relative 'flowdock/message'
     require_relative 'flowdock/rest'
+    require_relative 'flowdock/stats'
 
     def start
       @users = {}

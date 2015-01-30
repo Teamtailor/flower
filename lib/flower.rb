@@ -6,12 +6,12 @@ require 'eventmachine'
 require 'em-http'
 require 'yajl'
 require 'thin'
+require 'active_support/core_ext/object/blank'
 
 class Flower
   require_relative 'config'
   require_relative 'service'
   require_relative 'command'
-  require_relative 'stats'
   require_relative '../web/app'
 
   COMMANDS  = {} # We are going to load available commands in here
@@ -62,7 +62,7 @@ class Flower
         end
         unless message.from_self? || message.internal
           Flower::Command.trigger_listeners(sub_message)
-          Flower::Command.register_stats(sub_message)
+          Flower::Command.register_stats(sub_message) if Flower::Config.service == 'flowdock'
         end
       end
     end
