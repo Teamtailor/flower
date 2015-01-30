@@ -84,6 +84,8 @@ class Flower::Services::Slack::Message
   end
 
   def paste(reply, options = {})
+    reply = reply.join("\n") if reply.respond_to?(:join)
+    reply = "```#{reply}```"
     flower.service.send(type: 'message', channel: channel, text: reply)
   end
 end
