@@ -59,7 +59,13 @@ class Flower::Services::Slack::Message
   end
 
   def message
-    @message ||= data["text"]
+    @message ||= begin
+      if data["subtype"] == "message_changed"
+        data["message"]["text"]
+      else
+        data["text"]
+      end
+    end
   end
 
   def message=(message)
