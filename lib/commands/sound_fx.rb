@@ -1,8 +1,8 @@
 # encoding: UTF-8
 require_relative 'sound_command'
 class SoundFx < SoundCommand
-  respond_to "easy", "rimshot", "sad", "yeah", "applause", "bomb",
-    "suprise", "snore", "godwillsit", "sting", "pengar", "rik", "fel",
+  respond_to "easy", "rimshot", "sad", "yeah", "applause", "bomb", "kötta",
+    "suprise", "snore", "godwillsit", "sting", "pengar", "rik", "fel", "tjaman",
     "khan", "khan?", "tarelugnt", "tadetlugnt", "keke", "judas", "priest",
     "fascinating", "party", "tihi", "merikuh", "team", "gott", "bigbang", "itsatrap"
 
@@ -50,6 +50,8 @@ class SoundFx < SoundCommand
       play_file "soundfx/tadetlugnt.wav"
     when "tadetlugnt"
       play_file "soundfx/tadetlugnt.wav"
+    when "tjaman"
+      play_file "soundfx/tjaman.mp3"
     when "keke"
       play_file "soundfx/#{%w(pengar fel rik).sample}.mp3"
     when /judas|priest/
