@@ -1,6 +1,6 @@
 require 'typhoeus'
 class Pizza < Flower::Command
-  listen_to "pizza"
+  listen_to " pizza "
 
   def self.description
     "Pizza all the time - GIF"
