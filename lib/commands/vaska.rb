@@ -2,7 +2,7 @@
 require_relative 'sound_command'
 class Vaska < SoundCommand
   respond_to "vaska", "liv"
-  listen_to /vaska/i
+  listen_to /vaskar/i
 
   FULL = "vaska/vaska.mp3"
   FILES = Dir.glob("extras/vaska/vaska_short*.mp3").map{|f| f.gsub("extras/","")}
