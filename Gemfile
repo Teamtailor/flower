@@ -3,6 +3,7 @@ gem "rake",         "~> 0.9.2"
 gem 'nokogiri',     "~> 1.5.0"
 
 gem 'em-eventsource'
+gem 'slack-rtmapi'
 
 gem 'yajl-ruby'
 gem 'pry'
