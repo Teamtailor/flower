@@ -1,7 +1,7 @@
 # encoding: UTF-8
 require_relative 'sound_command'
 class SoundFx < SoundCommand
-  respond_to "easy", "rimshot", "sad", "yeah", "applause", "bomb", "kötta",
+  respond_to "easy", "rimshot", "sad", "yeah", "applause", "bomb",
     "suprise", "snore", "godwillsit", "sting", "pengar", "rik", "fel", "tjaman",
     "khan", "khan?", "tarelugnt", "tadetlugnt", "keke", "judas", "priest",
     "fascinating", "party", "tihi", "merikuh", "team", "gott", "bigbang", "itsatrap"
