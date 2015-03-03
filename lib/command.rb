@@ -42,6 +42,7 @@ class Flower::Command
 
   def self.trigger_listeners(message)
     return false if Flower::LISTENERS.empty?
+    return false if message.bot_message?
     Flower::LISTENERS.map do |regexp, command|
       begin
         command.listen(message) if message.message.match(regexp)
