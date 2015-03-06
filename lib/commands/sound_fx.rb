@@ -3,7 +3,7 @@ require_relative 'sound_command'
 class SoundFx < SoundCommand
   respond_to "easy", "rimshot", "sad", "yeah", "applause", "bomb",
     "suprise", "snore", "godwillsit", "sting", "pengar", "rik", "fel", "tjaman",
-    "khan", "khan?", "tarelugnt", "tadetlugnt", "keke", "judas", "priest",
+    "khan", "khan?", "tarelugnt", "tadetlugnt", "keke", "judas", "priest", "vandamme",
     "fascinating", "party", "tihi", "merikuh", "team", "gott", "bigbang", "itsatrap"
 
   def self.description
@@ -64,6 +64,8 @@ class SoundFx < SoundCommand
        play_file "soundfx/team.mp3"
      when "gott"
        play_file "soundfx/gott.wav"
+     when "vandamme"
+       play_file "soundfx/vandamme.mp3"
      when "bigbang"
        play_file "soundfx/Picture-a-Hot-Dog-Bun.mp3"
      when "itsatrap"
