@@ -12,7 +12,7 @@ class SoundCommand < Flower::Command
   end
 
   def self.system_play_file(file_name)
-    system "afplay", "-v", "4", File.expand_path(File.join(__FILE__, "..", "..", "..", "extras", file_name))
+    system "afplay", "-v", "3", File.expand_path(File.join(__FILE__, "..", "..", "..", "extras", file_name))
   end
 
   def self.silenced_at=(t)

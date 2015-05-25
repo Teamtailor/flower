@@ -1,12 +1,12 @@
 require 'typhoeus'
 class Pizza < Flower::Command
-  listen_to /pizza(\W|$)/i
+  respond_to "pizza"
 
   def self.description
     "Pizza all the time - GIF"
   end
 
-  def self.listen(msg)
+  def self.respond(message)
     msg.say "http://animatedpizzagifs.com/#{images.sample}"
   end
 
