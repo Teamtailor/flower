@@ -2,6 +2,7 @@ class Volume < Flower::Command
   respond_to "volume", "vol"
 
   def self.respond(message)
+    return if message.user_id == "U03GLV68H"
     if message.argument
       if validate_message(message.argument)
         adjust_volume(message.argument)
